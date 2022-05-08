@@ -1,10 +1,19 @@
-const buttons = document.querySelectorAll('button[data-key]')
 
 
-const removeTask = (e)=>{
-    const index = e.target.dataset.key;
-    const li = document.querySelector(`li[data-key="${index}"]`).remove()
-}
+// Filter
+const arr = [34,219,109,2934,12,10,29];
 
-buttons.forEach(button => button.addEventListener('click',removeTask))
+const oddNumbers = arr.filter(number=>number%2); 
+const evenNumbers = arr.filter(number=>!(number%2));
+const numbersBiggerThan100 = arr.filter(number => number > 100);
+console.log(oddNumbers);
+console.log(evenNumbers);
+console.log(numbersBiggerThan100);
 
+// Map
+const double = arr.map(number => number * 2);
+const people = arr.map(number => number + ' osób')
+console.log(people);
+
+// forEach
+arr.forEach((number,index)=> arr[index] = number * 2)
