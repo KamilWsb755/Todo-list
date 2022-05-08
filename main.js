@@ -1,19 +1,13 @@
+const input = document.querySelector('input');
+const ul = document.querySelector('ul');
+const liElements = document.querySelectorAll('li');
 
+const searchTask = (e)=>{
+    const searchText = e.target.value.toLowerCase();
+    let tasks = [...liElements];
+    tasks = tasks.filter(task => task.textContent.toLowerCase().includes(searchText));
+    ul.textContent = "";
+    tasks.forEach(li => ul.appendChild(li));
+}
 
-// Filter
-const arr = [34,219,109,2934,12,10,29];
-
-const oddNumbers = arr.filter(number=>number%2); 
-const evenNumbers = arr.filter(number=>!(number%2));
-const numbersBiggerThan100 = arr.filter(number => number > 100);
-console.log(oddNumbers);
-console.log(evenNumbers);
-console.log(numbersBiggerThan100);
-
-// Map
-const double = arr.map(number => number * 2);
-const people = arr.map(number => number + ' osób')
-console.log(people);
-
-// forEach
-arr.forEach((number,index)=> arr[index] = number * 2)
+input.addEventListener('input',searchTask);
